@@ -17,5 +17,5 @@
 		"psr-4" : {
 			"devskyfly\\megaplan\\" : "src"
 		}
-	},
+	}
 }
