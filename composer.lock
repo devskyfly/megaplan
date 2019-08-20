@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0087a12d639dd06ef0216539e69e35d2",
+    "content-hash": "97b8d873b26844be4e5ece615d8b69bc",
     "packages": [
+        {
+            "name": "devskyfly/php56",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devskyfly/php56.git",
+                "reference": "8e913374afd4337af800decd81e5f2a796ba98e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devskyfly/php56/zipball/8e913374afd4337af800decd81e5f2a796ba98e9",
+                "reference": "8e913374afd4337af800decd81e5f2a796ba98e9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "devskyfly\\php56\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan",
+                    "email": "devskyfly@gmail.com"
+                }
+            ],
+            "description": "Represent core php function and constants by namespaces and classes like static members.",
+            "time": "2019-02-19T08:58:19+00:00"
+        },
         {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
