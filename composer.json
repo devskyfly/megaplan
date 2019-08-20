@@ -17,5 +17,8 @@
 		"psr-4" : {
 			"devskyfly\\megaplan\\" : "src"
 		}
-	}
+	},
+    "require-dev": {
+        "codeception/codeception": "^3.1"
+    }
 }
