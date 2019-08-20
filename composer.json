@@ -1,0 +1,21 @@
+{
+    "name": "devskyfly/megaplan",
+    "description": "Provide simple Megaplan api client.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan",
+            "email": "devskyfly@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload" : {
+		"psr-4" : {
+			"devskyfly\\megaplan\\" : "src"
+		}
+	},
+}
