@@ -28,7 +28,7 @@ $ar = $client->get("/BumsTaskApiV01/Task/list.api");
 // List clients query
 $params = [
     "Offset" => 0,
-    "qs" => "Филиппов Иван Ярославович"
+    "qs" => "Петр Петрович Петров"
 ];
 
 $ar = $client->get("/BumsCrmApiV01/Contractor/list.api", $params);
