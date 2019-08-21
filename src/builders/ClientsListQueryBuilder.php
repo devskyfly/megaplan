@@ -18,6 +18,7 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
     public function init()
     {
         $this->offset(0);
+        return $this;
     }
 
     public function filterId($val)
@@ -26,6 +27,7 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
             throw new \InvalidArgumentException('Param $val is not integer.');
         }
         $this->_data['FilterId']=$val;
+        return $this;
     }
 
     public function limit($val)
@@ -34,6 +36,7 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
             throw new \InvalidArgumentException('Param $val is not integer.');
         }
         $this->_data['Limit']=$val;
+        return $this;
     }
 
     public function offset($val)
@@ -42,6 +45,7 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
             throw new \InvalidArgumentException('Param $val is not integer.');
         }
         $this->_data['Offset']=$val;
+        return $this;
     }
 
     public function queryString($val)
@@ -50,6 +54,7 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
             throw new \InvalidArgumentException('Param $val is not string.');
         }
         $this->_data['qs']=$val;
+        return $this;
     }
 
     public function phone($val)
@@ -58,6 +63,7 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
             throw new \InvalidArgumentException('Param $val is not string.');
         }
         $this->_data['Phone']=$val;
+        return $this;
     }
 
     /**
@@ -72,14 +78,14 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
             throw new \InvalidArgumentException('Param $val is not string.');
         }
         $this->_data['Model']=$val;
+        return $this;
     }
 
     public function droppedOnly()
     {
         $this->_data['DroppedOnly'] = true;
+        return $this;
     }
-
-    
 
     public function getData()
     {

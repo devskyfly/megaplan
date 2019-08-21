@@ -1,7 +1,9 @@
 
 ## Megaplan client
 
-Realize get and post request methods with params.
+This library realize megaplan api client and entities managers.
+
+### Client use sample
 
 ```php
 
@@ -33,4 +35,30 @@ $params = [
 
 $ar = $client->get("/BumsCrmApiV01/Contractor/list.api", $params);
 
+```
+
+### Builders use sample
+
+```php
+$client = new MegaplanClient("https://host",
+"Login", 
+"Password", 
+"proxy"); // optional
+
+$builder = new ClientModelBuilder();
+$builder->firstName("Иван")
+->lastName("Иванов")
+->middleName("Иванович")
+->locations(['home'=>'_'])
+->adversingWay(1);
+$result = $manager->create($builder);
+
+$builder->lastName("Петров");
+$result = $manager->edit(1000024, $builder);
+print_r($result);
+
+$builder = new ClientsListQueryBuilder();
+$builder->queryString("Филиппов");
+$manager = new ClientsManager($client);
+$result = $manager->getList($builder);
 ```

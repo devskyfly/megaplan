@@ -29,20 +29,20 @@ class ClientsManager
         return $this->_client->get($url, ["id", $id]);
     }
 
-    public function create()
+    public function create(QueryBuilderInterface $builder)
     {
         $url = "/BumsCrmApiV01/Contractor/save.api";
-        return $this->_client->post($url);
+        return $this->_client->post($url, $builder->getData());
     }
 
-    public function edit($id, $params)
+    public function edit($id, QueryBuilderInterface $builder)
     {
         if (!Nmbr::isInteger($id)) {
             throw new \InvalidArgumentException('Param $id is not integer');
         }
-
+        $builder->id($id);
         $url = "/BumsCrmApiV01/Contractor/save.api";
-        return $this->_client->post($url);
+        return $this->_client->post($url, $builder->getData());
     }
 
     public function delete($id)
@@ -52,6 +52,6 @@ class ClientsManager
         }
 
         $url = "/BumsCrmApiV01/Contractor/delete.api";
-        return $this->_client->post($url);
+        return $this->_client->post($url, []);
     }
 }
