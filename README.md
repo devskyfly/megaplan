@@ -47,10 +47,10 @@ $client = new MegaplanClient("https://host",
 
 $builder = new ClientModelBuilder();
 $builder->firstName("Иван")
-->lastName("Иванов")
-->middleName("Иванович")
-->locations(['home'=>'_'])
-->adversingWay(1);
+    ->lastName("Иванов")
+    ->middleName("Иванович")
+    ->locations(['home'=>'_'])
+    ->adversingWay(1);
 $result = $manager->create($builder);
 
 $builder->lastName("Петров");

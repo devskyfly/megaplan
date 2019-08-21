@@ -5,10 +5,9 @@ use devskyfly\php56\types\Arr;
 use devskyfly\php56\types\Nmbr;
 use devskyfly\php56\types\Str;
 
-class ClientsListQueryBuilder implements QueryBuilderInterface
+class DealsListQueryBuilder implements QueryBuilderInterface
 {
     private $_data=[];
-
 
     public function __construct()
     {
@@ -30,6 +29,21 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
         return $this;
     }
 
+    /**
+     * Set array of hash tables values where key is field name and value is model value. 
+     *
+     * @param [] $val - "field" => val
+     * @return void
+     */
+    public function filter($val)
+    {
+        if (!Arr::isArray($val)) {
+            throw new \InvalidArgumentException('Param $val is not array type.');
+        }
+        $this->_data['FilterFields']=$val;
+        return $this;
+    }
+
     public function limit($val)
     {
         if (!Nmbr::isInteger($val)) {
@@ -48,42 +62,21 @@ class ClientsListQueryBuilder implements QueryBuilderInterface
         return $this;
     }
 
-    public function queryString($val)
-    {
-        if (!Str::isString($val)) {
-            throw new \InvalidArgumentException('Param $val is not string type.');
-        }
-        $this->_data['qs']=$val;
-        return $this;
-    }
-
-    public function phone($val)
-    {
-        if (!Str::isString($val)) {
-            throw new \InvalidArgumentException('Param $val is not string type.');
-        }
-        $this->_data['Phone']=$val;
-        return $this;
-    }
-
-    /**
-     * Set array of hash tables values where key is field name and value is model value. 
-     *
-     * @param [] $val - "field" => val
-     * @return void
-     */
-    public function filter($val)
+    public function fields($val)
     {
         if (!Arr::isArray($val)) {
             throw new \InvalidArgumentException('Param $val is not array type.');
         }
-        $this->_data['Model']=$val;
+        $this->_data['RequestedFields']=$val;
         return $this;
     }
 
-    public function droppedOnly()
+    public function extraFields($val)
     {
-        $this->_data['DroppedOnly'] = true;
+        if (!Arr::isArray($val)) {
+            throw new \InvalidArgumentException('Param $val is not array type.');
+        }
+        $this->_data['ExtraFields']=$val;
         return $this;
     }
 
