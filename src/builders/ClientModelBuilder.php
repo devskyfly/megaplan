@@ -161,6 +161,19 @@ class ClientModelBuilder implements QueryBuilderInterface
         $this->_data['Model[AdvertisingWay]'] = $val;
         return $this;
     }
+
+    public function customProperty($name, $value)
+    {
+        if (!Str::isString($name)) {
+            throw new \InvalidArgumentException('Param $name is not string type');
+        }
+
+        if (!Str::isString($value)) {
+            throw new \InvalidArgumentException('Param $value is not string type');
+        }
+        $this->_data["Model[{$name}]"] = $value;
+        return $this;
+    }
     
     public function getData()
     {
