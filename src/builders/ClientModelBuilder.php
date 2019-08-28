@@ -68,7 +68,7 @@ class ClientModelBuilder implements QueryBuilderInterface
         if (!Str::isString($val)) {
             throw new \InvalidArgumentException('Param $val is not string type');
         }
-        $this->_data['Model[MiddleNameName]'] = $val;
+        $this->_data['Model[MiddleName]'] = $val;
         return $this;
     }
 
