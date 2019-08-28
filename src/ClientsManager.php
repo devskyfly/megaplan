@@ -26,7 +26,7 @@ class ClientsManager
         }
 
         $url = "/BumsCrmApiV01/Contractor/card.api";
-        return $this->_client->get($url, ["id", $id]);
+        return $this->_client->get($url, ["Id"=>$id]);
     }
 
     public function create(QueryBuilderInterface $builder)
@@ -43,6 +43,12 @@ class ClientsManager
         $builder->id($id);
         $url = "/BumsCrmApiV01/Contractor/save.api";
         return $this->_client->post($url, $builder->getData());
+    }
+
+    public function getFieldsDesc()
+    {
+        $url = "/BumsCrmApiV01/Contractor/listFields.api";
+        return $this->_client->get($url);
     }
 
     public function delete($id)

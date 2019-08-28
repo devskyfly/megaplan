@@ -24,13 +24,13 @@ class ClientModelBuilder implements QueryBuilderInterface
         return $this;
     }
 
-    public function typePersonHuman($val)
+    public function typePersonHuman()
     {
         $this->_data['Model[TypePerson]'] = 'human';
         return $this;
     }
 
-    public function typePersonCompany($val)
+    public function typePersonCompany()
     {
         $this->_data['Model[TypePerson]'] = 'company';
         return $this;
@@ -135,15 +135,15 @@ class ClientModelBuilder implements QueryBuilderInterface
         return $this;
     }
 
-    /*public function locations($val)
-    {
-        if (!Arr::isArray($val)) {
-            throw new \InvalidArgumentException('Param $val is not array type');
-        }
-        $this->_data['Model[Locations][location]'] = $val;
-        return $this;
-    }*/
-
+    /**
+     * Undocumented function
+     *
+     * @param [] $val - 
+     * [
+     *  "n1"=>["Address"=>"Саратов"]
+     * ]
+     * @return void
+     */
     public function locations($val)
     {
         if (!Arr::isArray($val)) {

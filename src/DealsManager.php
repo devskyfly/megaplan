@@ -26,7 +26,7 @@ class DealsManager
         }
 
         $url = "/BumsTradeApiV01/Deal/card.api";
-        return $this->_client->get($url, ["id", $id]);
+        return $this->_client->get($url, ["Id" => $id]);
     }
 
     public function create(QueryBuilderInterface $builder)
