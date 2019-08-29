@@ -108,7 +108,7 @@ class ClientModelBuilder implements QueryBuilderInterface
         return $this;
     }
 
-    public function bithday($val)
+    public function birthday($val)
     {
         if (!Arr::isArray($val)) {
             throw new \InvalidArgumentException('Param $val is not array type');

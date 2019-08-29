@@ -49,7 +49,7 @@ $builder = new ClientModelBuilder();
 $builder->firstName("Иван")
     ->lastName("Иванов")
     ->middleName("Иванович")
-    ->locations(['home'=>'_'])
+    ->locations(["n1"=>["Address"=>"Саратов"]])
     ->adversingWay(1);
 $result = $manager->create($builder);
 
