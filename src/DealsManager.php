@@ -2,6 +2,7 @@
 namespace devskyfly\megaplan;
 
 use devskyfly\megaplan\builders\QueryBuilderInterface;
+use devskyfly\megaplan\types\TypeInterface;
 use devskyfly\php56\types\Nmbr;
 
 class DealsManager
@@ -43,6 +44,18 @@ class DealsManager
         $builder->id($id);
         $url = "/BumsTradeApiV01/Deal/save.api";
         return $this->_client->post($url, $builder->getData());
+    }
+
+    public function bind($id, $bindId, TypeInterface $bindType)
+    {
+        if (!Nmbr::isInteger($id)) {
+            throw new \InvalidArgumentException('Param $id is not integer.');
+        }
+        if (!Nmbr::isInteger($bindId)) {
+            throw new \InvalidArgumentException('Param $bindId is not integer.');
+        }
+        $url = "/BumsTradeApiV01/Deal/saveRelation.api";
+        return $this->_client->post($url, ["Id"=>$id, "RelatedObjectId"=>$bindId, "RelatedObjectType"=>$bindType->getVal()]);
     }
 
     public function executeScript($dealId, $scriptId)
