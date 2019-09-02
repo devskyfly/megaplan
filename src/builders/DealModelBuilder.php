@@ -20,7 +20,7 @@ class DealModelBuilder implements QueryBuilderInterface
         if (!Nmbr::isInteger($val)) {
             throw new \InvalidArgumentException('Param $val is not integer type.');
         }
-        $this->_data['id']=$val;
+        $this->_data['Id']=$val;
         return $this;
     }
 
