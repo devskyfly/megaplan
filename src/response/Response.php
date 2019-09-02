@@ -30,12 +30,12 @@ class Response
 
     public function getStatusCode()
     {
-        return $this->answer['status']['message'];
+        return $this->answer['status']['code'];
     }
 
     public function getStatusMsg()
     {
-        return $this->answer['status']['code'];
+        return $this->answer['status']['message'];
     }
 
     /**

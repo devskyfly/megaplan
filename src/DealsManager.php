@@ -83,7 +83,7 @@ class DealsManager
         }
         $url = "/BumsTradeApiV01/Deal/saveRelation.api";
         $result = $this->_client->post($url, ["Id"=>$id, "RelatedObjectId"=>$bindId, "RelatedObjectType"=>$bindType->getVal()]);
-        return new DealScriptResponse($result);
+        return new BindDealToTaskResponse($result);
     }
 
     public function executeScript($dealId, $scriptId)
@@ -94,9 +94,9 @@ class DealsManager
         if (!Nmbr::isInteger($scriptId)) {
             throw new \InvalidArgumentException('Param $scriptId is not integer.');
         }
-
+        
         $url = "/BumsTradeApiV01/Deal/runTrigger.api";
         $result =  $this->_client->post($url, ["DealId"=>$dealId, "TriggerId"=>$scriptId]);
-        return new BindDealToTaskResponse($result);
+        return new DealScriptResponse($result);
     }
 }
