@@ -4,27 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "97b8d873b26844be4e5ece615d8b69bc",
+    "content-hash": "2e206b766672c386d1b2d08037a0126c",
     "packages": [
         {
             "name": "devskyfly/php56",
-            "version": "v1.0.1",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/devskyfly/php56.git",
-                "reference": "8e913374afd4337af800decd81e5f2a796ba98e9"
+                "reference": "c7776272b7552f68f5e38bba488ec8b23eac863b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/devskyfly/php56/zipball/8e913374afd4337af800decd81e5f2a796ba98e9",
-                "reference": "8e913374afd4337af800decd81e5f2a796ba98e9",
+                "url": "https://api.github.com/repos/devskyfly/php56/zipball/c7776272b7552f68f5e38bba488ec8b23eac863b",
+                "reference": "c7776272b7552f68f5e38bba488ec8b23eac863b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "codeception/codeception": "^2.4"
+                "codeception/codeception": "^2.4",
+                "consolidation/robo": "^1.4",
+                "friendsofphp/php-cs-fixer": "^2.15",
+                "symfony/console": "^3.4.17"
             },
             "type": "library",
             "autoload": {
@@ -43,7 +46,7 @@
                 }
             ],
             "description": "Represent core php function and constants by namespaces and classes like static members.",
-            "time": "2019-02-19T08:58:19+00:00"
+            "time": "2019-08-27T07:33:44+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3441,12 +3444,14 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "devskyfly/php56": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2"
+        "php": ">=5.6"
     },
     "platform-dev": []
 }

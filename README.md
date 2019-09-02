@@ -58,7 +58,7 @@ $result = $manager->edit(1000024, $builder);
 print_r($result);
 
 $builder = new ClientsListQueryBuilder();
-$builder->queryString("Филиппов");
+$builder->queryString("Петров");
 $manager = new ClientsManager($client);
 $result = $manager->getList($builder);
 ```

@@ -2,30 +2,52 @@
 namespace devskyfly\megaplan\response;
 
 use devskyfly\php56\types\Arr;
-
-use function GuzzleHttp\Psr7\build_query;
+use devskyfly\php56\types\Vrbl;
 
 class Response
 {
     const STATUS_OK = "ok";
     const STATUS_ERROR = "error";
     
-    protected $data;
+    protected $answer;
 
-    public function __construct($data)
+    /**
+     *
+     * @param [] $answer
+     * @throws ResponseException
+     */
+    public function __construct($answer)
     {
-        if (!Arr::isArray($data)) {
-            throw new \InvalidArgumentException('Param $data is not array type.');
+        if (!Arr::isArray($answer)) {
+            throw new \InvalidArgumentException('Param $answer is not array type.');
         }
-        $this->data = $data;
+        $this->answer = $answer;
 
-        if ($this->data['status']['code']==self::STATUS_ERROR) {
+        if ($this->answer['status']['code']==self::STATUS_ERROR) {
             throw new ResponseException('Response status is '.self::STATUS_ERROR.'.');
         }
     }
 
+    /**
+     * 
+     * @return [] | null
+     */
     public function getData()
     {
-        return $this->data['data'];
+        return Vrbl::getValue($this->answer, 'data', null);
+    }
+    
+    /**
+     *
+     * @throws ResponseException 
+     * @return [] | null
+     */
+    public function getPayload()
+    {
+        $data = $this->getData();
+        if (!Arr::isArray($data)) {
+            throw new ResponseException('Param $data is not array type.');
+        }
+        return $data;
     }
 }
