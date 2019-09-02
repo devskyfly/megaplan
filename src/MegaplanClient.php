@@ -37,7 +37,8 @@ class MegaplanClient
                 'Login'=> $this->_login,
                 'Password'=>hash("md5", $this->_password)
             ],
-            'verify' => false
+            'verify' => false,
+            
         ];
         if (!is_null($this->_proxy)) {
             $params['proxy'] = $this->_proxy;
@@ -94,7 +95,8 @@ class MegaplanClient
                 'X-Authorization' => $this->_accessId.":".$signature
             ],
             'verify' => false,
-            'query' => $query
+            'query' => $query,
+            'http_errors' => false
         ];
 
         if (!is_null($this->_proxy)) {
@@ -120,7 +122,8 @@ class MegaplanClient
                 'X-Authorization' => $this->_accessId.":".$signature
             ],
             'verify' => false,
-            'form_params' => $params
+            'form_params' => $params,
+            'http_errors' => false
         ];
 
         

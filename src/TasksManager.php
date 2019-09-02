@@ -2,6 +2,9 @@
 namespace devskyfly\megaplan;
 
 use devskyfly\megaplan\builders\QueryBuilderInterface;
+use devskyfly\megaplan\response\FieldsResponse;
+use devskyfly\megaplan\response\TaskResponse;
+use devskyfly\megaplan\response\TasksResponse;
 use devskyfly\php56\types\Nmbr;
 
 class TasksManager
@@ -16,7 +19,8 @@ class TasksManager
     public function getList(QueryBuilderInterface $query)
     {
         $url = "/BumsTaskApiV01/Task/list.api";
-        return $this->_client->get($url, $query->getData());
+        $result = $this->_client->get($url, $query->getData());
+        return new TasksResponse($result);
     }
 
     public function get($id)
@@ -26,13 +30,15 @@ class TasksManager
         }
 
         $url = "/BumsTaskApiV01/Task/card.api";
-        return $this->_client->get($url, ["Id"=>$id]);
+        $result = $this->_client->get($url, ["Id"=>$id]);
+        return new TaskResponse($result);
     }
 
     public function create(QueryBuilderInterface $builder)
     {
         $url = "/BumsTaskApiV01/Task/create.api";
-        return $this->_client->post($url, $builder->getData());
+        $result = $this->_client->post($url, $builder->getData());
+        return new TaskResponse($result);
     }
 
     public function edit($id, QueryBuilderInterface $builder)
@@ -42,13 +48,15 @@ class TasksManager
         }
         $builder->id($id);
         $url = "/BumsTaskApiV01/Task/edit.api";
-        return $this->_client->post($url, $builder->getData());
+        $result = $this->_client->post($url, $builder->getData());
+        return new TaskResponse($result);
     }
 
     public function getFieldsDesc()
     {
         $url = "/BumsTaskApiV01/Task/listFields.api";
-        return $this->_client->get($url);
+        $result = $this->_client->get($url);
+        return new FieldsResponse($result);
     }
 
     public function delete($id)

@@ -10,7 +10,6 @@ class Response
     const STATUS_ERROR = "error";
     
     protected $answer;
-
     /**
      *
      * @param [] $answer
@@ -21,11 +20,22 @@ class Response
         if (!Arr::isArray($answer)) {
             throw new \InvalidArgumentException('Param $answer is not array type.');
         }
+
         $this->answer = $answer;
 
         if ($this->answer['status']['code']==self::STATUS_ERROR) {
-            throw new ResponseException('Response status is '.self::STATUS_ERROR.'.');
+            throw new ResponseException('Response error: '.$this->getStatusMsg().'.');
         }
+    }
+
+    public function getStatusCode()
+    {
+        return $this->answer['status']['message'];
+    }
+
+    public function getStatusMsg()
+    {
+        return $this->answer['status']['code'];
     }
 
     /**
