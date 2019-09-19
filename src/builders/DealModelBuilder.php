@@ -35,7 +35,7 @@ class DealModelBuilder implements QueryBuilderInterface
 
     public function statusId($val)
     {
-        if (!($val)) {
+        if (!Nmbr::isInteger($val)) {
             throw new \InvalidArgumentException('Param $val is not integer type.');
         }
         $this->_data['StatusId']=$val;

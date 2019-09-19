@@ -9,7 +9,7 @@ use devskyfly\megaplan\response\FieldsResponse;
 use devskyfly\megaplan\response\Response;
 use devskyfly\php56\types\Nmbr;
 
-class ClientsManager
+class CommentsManager
 {
     private $_client;
 
@@ -24,12 +24,12 @@ class ClientsManager
      * @param QueryBuilderInterface $query
      * @return ClientsResponse
      */
-    public function getList(QueryBuilderInterface $query)
+    /*public function getList(QueryBuilderInterface $query)
     {
-        $url = "/BumsCrmApiV01/Contractor/list.api";
+        $url = "/BumsCommonApiV01/Comment/all.api";
         $result = $this->_client->get($url, $query->getData());
         return new ClientsResponse($result);
-    }
+    }*/
 
     /**
      * Undocumented function
@@ -37,7 +37,7 @@ class ClientsManager
      * @param integer $id
      * @return ClientResponse
      */
-    public function get($id)
+    /*public function get($id)
     {
         if (!Nmbr::isInteger($id)) {
             throw new \InvalidArgumentException('Param $id is not integer');
@@ -46,7 +46,7 @@ class ClientsManager
         $url = "/BumsCrmApiV01/Contractor/card.api";
         $result = $this->_client->get($url, ["Id"=>$id]);
         return new ClientResponse($result);
-    }
+    }*/
 
     /**
      * Undocumented function
@@ -56,7 +56,7 @@ class ClientsManager
      */
     public function create(QueryBuilderInterface $builder)
     {
-        $url = "/BumsCrmApiV01/Contractor/save.api";
+        $url = "/BumsCommonApiV01/Comment/create.api";
         $result =  $this->_client->post($url, $builder->getData());
         return new ClientResponse($result);
     }
@@ -68,7 +68,7 @@ class ClientsManager
      * @param QueryBuilderInterface $builder
      * @return ClientResponse
      */
-    public function edit($id, QueryBuilderInterface $builder)
+    /*public function edit($id, QueryBuilderInterface $builder)
     {
         if (!Nmbr::isInteger($id)) {
             throw new \InvalidArgumentException('Param $id is not integer');
@@ -77,19 +77,19 @@ class ClientsManager
         $url = "/BumsCrmApiV01/Contractor/save.api";
         $result = $this->_client->post($url, $builder->getData());
         return new ClientResponse($result);
-    }
+    }*/
 
     /**
      * Undocumented function
      *
      * @return FieldsReponse
      */
-    public function getFieldsDesc()
+    /*public function getFieldsDesc()
     {
         $url = "/BumsCrmApiV01/Contractor/listFields.api";
         $result = $this->_client->get($url);
         return new FieldsResponse($result);
-    }
+    }*/
 
     /**
      * Undocumented function
@@ -97,7 +97,7 @@ class ClientsManager
      * @param integer $id
      * @return DeleteResponse
      */
-    public function delete($id)
+    /*public function delete($id)
     {
         if (!Nmbr::isInteger($id)) {
             throw new \InvalidArgumentException('Param $id is not integer');
@@ -107,5 +107,5 @@ class ClientsManager
         
         $result = $this->_client->post($url, ['Id'=>$id]);
         return new DeleteResponse($result);  
-    }
+    }*/
 }
