@@ -2,12 +2,8 @@
 namespace devskyfly\megaplan;
 
 use devskyfly\megaplan\builders\QueryBuilderInterface;
-use devskyfly\megaplan\response\ClientResponse;
-use devskyfly\megaplan\response\ClientsResponse;
+use devskyfly\megaplan\response\CommentResponse;
 use devskyfly\megaplan\response\DeleteResponse;
-use devskyfly\megaplan\response\FieldsResponse;
-use devskyfly\megaplan\response\Response;
-use devskyfly\php56\types\Nmbr;
 
 class CommentsManager
 {
@@ -52,13 +48,13 @@ class CommentsManager
      * Undocumented function
      *
      * @param QueryBuilderInterface $builder
-     * @return ClientResponse
+     * @return CommentResponse
      */
     public function create(QueryBuilderInterface $builder)
     {
         $url = "/BumsCommonApiV01/Comment/create.api";
         $result =  $this->_client->post($url, $builder->getData());
-        return new ClientResponse($result);
+        return new CommentResponse($result);
     }
 
     /**
