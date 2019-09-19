@@ -8,6 +8,6 @@ class DealsResponse extends Response
     public function getPayload()
     {
         $data = parent::getPayload();
-        return Vrbl::getValue($data, "deal", null);
+        return Vrbl::getValue($data, "deals", null);
     }
 }
