@@ -7,7 +7,6 @@ class DealScriptResponse extends Response
 {
     public function getPayload()
     {
-        return $data = parent::getPayload();
-        //return Vrbl::getValue($data, "deal", null);
+        return Vrbl::getValue($data, "deal", null);
     }
 }

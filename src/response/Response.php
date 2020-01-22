@@ -24,7 +24,8 @@ class Response
         $this->answer = $answer;
 
         if ($this->answer['status']['code']==self::STATUS_ERROR) {
-            throw new ResponseException('Response error: '.$this->getStatusMsg().'.');
+            //throw new ResponseException('Response error: '.$this->getStatusMsg().'.');
+            throw new ResponseException('Response error: '.print_r($this->answer, true).'.');
         }
     }
 

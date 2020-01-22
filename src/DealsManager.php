@@ -64,7 +64,7 @@ class DealsManager
     /**
      * Undocumented function
      *
-     * @return FieldsReponse
+     * @return FieldsResponse
      */
     public function getFieldsDesc()
     {

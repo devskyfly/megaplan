@@ -8,6 +8,7 @@ use devskyfly\megaplan\response\DeleteResponse;
 use devskyfly\megaplan\response\FieldsResponse;
 use devskyfly\megaplan\response\Response;
 use devskyfly\php56\types\Nmbr;
+use yii\helpers\BaseConsole;
 
 class ClientsManager
 {
