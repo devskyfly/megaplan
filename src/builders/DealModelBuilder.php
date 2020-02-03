@@ -87,12 +87,12 @@ class DealModelBuilder implements QueryBuilderInterface
         return $this;
     }
 
-    public function name($val)
+    public function customField($name, $val)
     {
-        if (!Str::isString($val)) {
+        if (!Str::isString($name)) {
             throw new \InvalidArgumentException('Param $val is not string type.');
         }
-        $this->_data['Model[CustomName]']=$val;
+        $this->_data['Model['.$name.']'] = $val;
         return $this;
     }
 
